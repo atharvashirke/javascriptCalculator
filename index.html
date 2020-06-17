@@ -10,119 +10,83 @@
     <title>Javascript Calculator</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container calculator">
       <div class="row">
-        <div class="col-lg-12">
-          <input type="text" id="#display">
+        <input type="text" class="col">
+      </div>
+
+      <div class="row text-center">
+        <div class="col key special" id="clear">
+          <h1>AC</h1>
+        </div>
+        <div class="col key special" id="sign">
+          <h1>+/-</h1>
+        </div>
+        <div class="col key special" id="percent">
+          <h1>%</h1>
+        </div>
+        <div class="col key highlight operator">
+          <h1>÷</h1>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>AC</h1>
-          </div>
+
+      <div class="row text-center">
+        <div class="col key num">
+          <h1>7</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>+/-</h1>
-          </div>
+        <div class="col key num">
+          <h1>8</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>%</h1>
-          </div>
+        <div class="col key num">
+          <h1>9</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>÷</h1>
-          </div>
+        <div class="col key highlight operator">
+          <h1>×</h1>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>7</h1>
-          </div>
+
+      <div class="row text-center">
+        <div class="col key num">
+          <h1>4</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>8</h1>
-          </div>
+        <div class="col key num">
+          <h1>5</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>9</h1>
-          </div>
+        <div class="col key num">
+          <h1>6</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>X</h1>
-          </div>
+        <div class="col key highlight operator">
+          <h1>-</h1>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>4</h1>
-          </div>
+
+      <div class="row text-center">
+        <div class="col key num">
+          <h1>1</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>5</h1>
-          </div>
+        <div class="col key num">
+          <h1>2</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>6</h1>
-          </div>
+        <div class="col key num">
+          <h1>3</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>-</h1>
-          </div>
+        <div class="col key highlight operator">
+          <h1>+</h1>
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>1</h1>
-          </div>
+
+      <div class="row text-center">
+        <div class="col-6 key num">
+          <h1>0</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>2</h1>
-          </div>
+        <div class="col-3 key num">
+          <h1>.</h1>
         </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>3</h1>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>+</h1>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="key">
-            <h1>0</h1>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>.</h1>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="key">
-            <h1>=</h1>
-          </div>
+        <div class="col-3 key highlight" id="enter">
+          <h1>=</h1>
         </div>
       </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
