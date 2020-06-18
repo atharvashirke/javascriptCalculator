@@ -90,6 +90,24 @@ for (var i = 0; i < operators.length; i++) {
 	})
 }
 
+var highlightKeys = document.getElementsByClassName("highlight")
+window.setInterval(function() {
+	var color = randomRGB()
+	for (var i = 0; i < highlightKeys.length; i++) {
+		highlightKeys[i].style.backgroundColor = color
+	}
+
+
+}, 5000)
+
+function randomRGB() {
+	return "rgb(" + getRandomInt(255) + ', ' + getRandomInt(255) + ', ' + getRandomInt(255) + ')'
+}
+
+function getRandomInt(max) {
+	return Math.floor(Math.random() * max)
+}
+
 var clear = document.getElementById("clear")
 clear.addEventListener("click", function() {
 	display.value = 0
