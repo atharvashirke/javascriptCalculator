@@ -13,9 +13,7 @@ document.addEventListener("keypress", function(event) {
 function calculate() {
 	var input = display.value
 	var operands = input.match(/[-+]?[0-9]*\.?[0-9]+/g)
-	console.log(operands)
 	var operator = input.match(/\s[\+÷\*×\-\/]\s/g)
-	console.log(operator)
 	var output;
 	var counter = 0;
 	operands.forEach(function(element, index) {
