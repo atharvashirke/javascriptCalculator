@@ -1,5 +1,6 @@
 var display = document.querySelector("input")
 var calculationComplete = false
+var operationLocked = false
 
 display.value = 0
 
@@ -11,40 +12,54 @@ document.addEventListener("keypress", function(event) {
 
 function calculate() {
 	var input = display.value
-	var expression = input.match(/([-+]?[0-9]*\.?[0-9])\s*([\+÷\*×\-\/])\s*([-+]?[0-9]*\.?[0-9]+)/)
+	var operands = input.match(/[-+]?[0-9]*\.?[0-9]+/g)
+	console.log(operands)
+	var operator = input.match(/\s[\+÷\*×\-\/]\s/g)
+	console.log(operator)
 	var output;
+	var counter = 0;
+	operands.forEach(function(element, index) {
+		if (index == 0) {
+			output = element;
+		} else {
+			output = arithmetic(output, element, operator[counter])
+			counter++
+		}
+	})
+	
+	display.value = output
+	calculationComplete = true
+}
 
-	switch(expression[2]) {
-		case '+':
-			output = parseFloat(expression[1]) + parseFloat(expression[3])
+function arithmetic(x, y, stringOperator) {
+	switch(stringOperator) {
+		case ' + ':
+			return parseFloat(x) + parseFloat(y)
 			break;
 
-		case '-':
-			output = parseFloat(expression[1]) - parseFloat(expression[3])
+		case ' - ':
+			return parseFloat(x) - parseFloat(y)
 			break;
 
-		case '*':
-			output = parseFloat(expression[1]) * parseFloat(expression[3])
+		case ' * ':
+			return parseFloat(x) * parseFloat(y)
 			break;
 
-		case '×':
-			output = parseFloat(expression[1]) * parseFloat(expression[3])
+		case ' × ':
+			return parseFloat(x) * parseFloat(y)
 			break;
 
-		case '/':
-			output = parseFloat(expression[1]) / parseFloat(expression[3])
+		case ' / ':
+			return parseFloat(x) / parseFloat(y)
 			break;
 
-		case '÷':
-			output = parseFloat(expression[1]) / parseFloat(expression[3])
+		case ' ÷ ':
+			return parseFloat(x) / parseFloat(y)
 			break;
 
 		default:
 			error()
 	}
-
-	display.value = output
-	calculationComplete = true
 }
 
 function error() {
@@ -58,9 +73,10 @@ for (var i = 0; i < numKeys.length; i++) {
 			display.value = this.firstElementChild.textContent
 		} else if (!calculationComplete) {
 			display.value += this.firstElementChild.textContent
+			operationLocked = false
 		} else {
 			display.value = this.firstElementChild.textContent
-			calculationComplete = false;
+			calculationComplete = false
 		}
 	})
 }
@@ -68,8 +84,11 @@ for (var i = 0; i < numKeys.length; i++) {
 var operators = document.getElementsByClassName("operator")
 for (var i = 0; i < operators.length; i++) {
 	operators[i].addEventListener("click", function() {
-		display.value += this.firstElementChild.textContent
-		calculationComplete = false
+		if (!operationLocked) {
+			display.value += ' ' + this.firstElementChild.textContent + ' '
+			calculationComplete = false
+			operationLocked = true
+		}
 	})
 }
 
