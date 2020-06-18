@@ -11,40 +11,37 @@ document.addEventListener("keypress", function(event) {
 
 function calculate() {
 	var input = display.value
-	var operand = input.match(/[-+]?[0-9]*\.?[0-9]+/g)
-	var operator = display.value.match(/[\+÷\*×\-\/]/)
+	var expression = input.match(/([-+]?[0-9]*\.?[0-9])\s*([\+÷\*×\-\/])\s*([-+]?[0-9]*\.?[0-9]+)/)
 	var output;
 
-	switch(operator[0]) {
+	switch(expression[2]) {
 		case '+':
-			output = parseFloat(operand[0]) + parseFloat(operand[1])
+			output = parseFloat(expression[1]) + parseFloat(expression[3])
 			break;
 
 		case '-':
-			output = parseFloat(operand[0]) - parseFloat(operand[1])
+			output = parseFloat(expression[1]) - parseFloat(expression[3])
 			break;
 
 		case '*':
-			output = parseFloat(operand[0]) * parseFloat(operand[1])
+			output = parseFloat(expression[1]) * parseFloat(expression[3])
 			break;
 
 		case '×':
-			output = parseFloat(operand[0]) * parseFloat(operand[1])
+			output = parseFloat(expression[1]) * parseFloat(expression[3])
 			break;
 
 		case '/':
-			output = parseFloat(operand[0]) / parseFloat(operand[1])
+			output = parseFloat(expression[1]) / parseFloat(expression[3])
 			break;
 
 		case '÷':
-			output = parseFloat(operand[0]) / parseFloat(operand[1])
+			output = parseFloat(expression[1]) / parseFloat(expression[3])
 			break;
 
 		default:
 			error()
 	}
-
-	console.log("Answer is " + output)
 
 	display.value = output
 	calculationComplete = true
